@@ -7,7 +7,7 @@
 
 - 🔭 I’m currently working on **Making a portfolio for my projects**
 
-- 👯 I’m looking to collaborate on **On anything, I always to learn new things! Let's collaborate!**
+- 👯 I’m looking to collaborate on **On anything, I always want to learn new things! Let's collaborate!**
 
 - 💬 Ask me about **Python, data modelling, data viz,**
 
