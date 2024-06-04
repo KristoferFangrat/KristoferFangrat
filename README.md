@@ -5,11 +5,15 @@
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=kristoferfangrat" alt="kristoferfangrat" /></a> </p>
 
-- 💬 Ask me about **Python**
+- 🔭 I’m currently working on **Making a portfolio for my projects**
+
+- 👯 I’m looking to collaborate on **On anything, I always to learn new things! Let's collaborate!**
+
+- 💬 Ask me about **Python, data modelling, data viz,**
 
 - 📫 How to reach me **kristofer.fangrat@gmail.com**
 
-- ⚡ Fun fact **I have been working in the restaurant business all my working career. Now I want to make a change.**
+- ⚡ Fun fact: **I have been working in the restaurant business all my working career. Now I want to make a change.**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
@@ -22,4 +26,3 @@
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=kristoferfangrat&show_icons=true&locale=en" alt="kristoferfangrat" /></p>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=kristoferfangrat&" alt="kristoferfangrat" /></p>
-
