@@ -1,112 +1,42 @@
-# Restaurant Profit Dashboard
+# Hi, I'm Kristofer 👋
 
-A portfolio-ready analytics project for restaurant inventory and profit tracking.
+Freelance Data Analyst based in Sweden — available for remote projects.
 
-## Dashboard Preview
+I help businesses turn raw data into clear decisions through SQL pipelines, interactive dashboards, and actionable reporting.
 
-![Dashboard Overview](screenshots/dashboard_overview.png)
+---
 
-![Top Products by Profit](screenshots/profit_by_category.png)
+## Tech Stack
 
-## What this project solves
-Restaurants need a quick way to understand:
-- Revenue, cost, and profit trends
-- Profit margin and average order value
-- Which products generate the most profit
-- Which products need reorder attention
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=postgresql&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat&logo=powerbi&logoColor=black)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=flat&logo=plotly&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
 
-## Tech stack
-- Python
-- SQLite
-- Streamlit
-- Pandas
-- Plotly
+---
 
-## Project structure
+## Portfolio Projects
 
-```
-restaurant-profit-dashboard/
-├── app.py
-├── requirements.txt
-├── database/
-│   ├── init_db.py
-│   ├── schema.sql
-│   ├── seed.sql
-│   └── restaurant_analytics.db   # generated after init
-├── data/
-└── screenshots/
-```
+| Project | What it solves | Stack |
+|---|---|---|
+| [Restaurant Profit Dashboard](https://github.com/KristoferFangrat/data-analyst-stallmastaregarden) | Live dashboard tracking revenue, cost, profit margin, and top products for a restaurant | Python · SQLite · Streamlit · Plotly |
+| [Ecommerce KPI Dashboard](https://github.com/KristoferFangrat/data-analyst-stallmastaregarden) | SQL pipeline + Power BI dashboard answering which channels and categories drive profitable growth | SQL · Power BI |
 
-### Automatic cleanup of kitchen notes/add-ons
+---
 
-During import/init, non-sales rows are automatically removed from the stored database so both Streamlit and DBeaver stay clean. This includes entries like steak doneness notes (`medium`, `well done`), kitchen comments (`allt fram`, `nollbong`), and add-on/info categories (`Info kök`, `Extra tillbehör`, `Sides`, `Snacks`).
+## What I offer
 
-## Quick start
+- **KPI dashboards** — business-ready, filterable, visually clear
+- **SQL data pipelines** — cleaning, modeling, validation
+- **EDA & reporting** — from raw data to actionable executive summaries
+- **Remote-friendly** — async-first workflow, clear communication
 
-1. Install dependencies:
+---
 
-```bash
-pip install -r requirements.txt
-```
+## Currently open to freelance projects
 
-2. Create and seed SQLite database:
-
-```bash
-python database/init_db.py --reset
-```
-
-Alternative: load real order data from CSV (from your existing ecommerce project file):
-
-```bash
-python database/load_orders_csv.py
-```
-
-You can also pass a custom CSV path:
-
-```bash
-python database/load_orders_csv.py --csv "C:/path/to/orders.csv"
-```
-
-If your default DB file is locked (for example by DBeaver), write to a new DB file:
-
-```bash
-python database/load_orders_csv.py --db "database/restaurant_analytics_real.db"
-```
-
-3. Run Streamlit app:
-
-```bash
-streamlit run app.py
-```
-
-## KPIs included
-- Total revenue
-- Total cost
-- Total profit
-- Profit margin %
-- Average order value (AOV)
-- Stock value
-- Reorder needed
-- Top 5 products by profit
-
-## Reorder logic
-- `Reorder` if remaining stock < 20
-- `Watch` if remaining stock is 20-40
-- `OK` if remaining stock > 40
-
-## Data source modes
-- Demo mode: `python database/init_db.py --reset`
-- Real data mode: `python database/load_orders_csv.py`
-
-In real data mode, the dashboard uses:
-- net revenue = `order_amount - discount_amount`
-- cost = `cogs_amount`
-- only rows with status `completed` in KPI totals
-
-The app sidebar lets you choose which `.db` file to visualize.
-
-## Portfolio value
-This project demonstrates practical analytics workflow:
-1. SQL modeling and data extraction
-2. Python transformation and KPI calculations
-3. Interactive dashboard for business decisions
+📬 Reach me on [LinkedIn](https://linkedin.com/in/your-profile) or by email.
