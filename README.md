@@ -1,77 +1,112 @@
-# Ecommerce KPI Dashboard Portfolio Project
+# Restaurant Profit Dashboard
+
+A portfolio-ready analytics project for restaurant inventory and profit tracking.
 
 ## Dashboard Preview
 
-> Screenshots will appear here once the Power BI dashboard is exported.  
-> Add images to `assets/` and update the paths below.
+![Dashboard Overview](screenshots/dashboard_overview.png)
 
-<!-- ![Dashboard Overview](assets/dashboard_overview.png) -->
-<!-- ![KPI Trend](assets/kpi_trend.png) -->
+![Top Products by Profit](screenshots/profit_by_category.png)
 
-## Project Summary
-This project analyzes ecommerce performance to answer one core business question:
-which channels, categories, and periods are driving revenue growth with healthy margins?
+## What this project solves
+Restaurants need a quick way to understand:
+- Revenue, cost, and profit trends
+- Profit margin and average order value
+- Which products generate the most profit
+- Which products need reorder attention
 
-The output is a decision-ready dashboard and a short executive summary with practical actions.
+## Tech stack
+- Python
+- SQLite
+- Streamlit
+- Pandas
+- Plotly
 
-## Business Problem
-A fictional ecommerce team needs better visibility into revenue quality, not only top-line growth.
-Current reporting is fragmented and does not consistently track margin and return behavior.
+## Project structure
 
-### Target KPIs
-- Revenue
-- Gross margin and gross margin percent
+```
+restaurant-profit-dashboard/
+├── app.py
+├── requirements.txt
+├── database/
+│   ├── init_db.py
+│   ├── schema.sql
+│   ├── seed.sql
+│   └── restaurant_analytics.db   # generated after init
+├── data/
+└── screenshots/
+```
+
+### Automatic cleanup of kitchen notes/add-ons
+
+During import/init, non-sales rows are automatically removed from the stored database so both Streamlit and DBeaver stay clean. This includes entries like steak doneness notes (`medium`, `well done`), kitchen comments (`allt fram`, `nollbong`), and add-on/info categories (`Info kök`, `Extra tillbehör`, `Sides`, `Snacks`).
+
+## Quick start
+
+1. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+2. Create and seed SQLite database:
+
+```bash
+python database/init_db.py --reset
+```
+
+Alternative: load real order data from CSV (from your existing ecommerce project file):
+
+```bash
+python database/load_orders_csv.py
+```
+
+You can also pass a custom CSV path:
+
+```bash
+python database/load_orders_csv.py --csv "C:/path/to/orders.csv"
+```
+
+If your default DB file is locked (for example by DBeaver), write to a new DB file:
+
+```bash
+python database/load_orders_csv.py --db "database/restaurant_analytics_real.db"
+```
+
+3. Run Streamlit app:
+
+```bash
+streamlit run app.py
+```
+
+## KPIs included
+- Total revenue
+- Total cost
+- Total profit
+- Profit margin %
 - Average order value (AOV)
-- Return rate
-- Orders and customers
+- Stock value
+- Reorder needed
+- Top 5 products by profit
 
-## Tech Stack
-- SQL (cleaning, modeling, KPI logic, validation)
-- Power BI (dashboard and filtering)
-- Optional Python notebook for EDA
+## Reorder logic
+- `Reorder` if remaining stock < 20
+- `Watch` if remaining stock is 20-40
+- `OK` if remaining stock > 40
 
-## Project Structure
-- `data/raw`: raw source files (not versioned)
-- `data/processed`: processed outputs (not versioned)
-- `sql`: step-by-step SQL scripts
-- `powerbi`: dashboard file
-- `reports`: executive summary template and export files
-- `docs`: KPI definitions and assumptions
-- `assets`: dashboard screenshots for the portfolio
+## Data source modes
+- Demo mode: `python database/init_db.py --reset`
+- Real data mode: `python database/load_orders_csv.py`
 
-## Workflow
-1. Place source CSV files in `data/raw`.
-2. Load `raw_orders` into your SQL engine.
-3. Run SQL scripts in order:
-   - `sql/01_data_cleaning.sql`
-   - `sql/02_kpi_queries.sql`
-   - `sql/03_validation_checks.sql`
-4. Connect Power BI to output tables (`kpi_monthly`, `kpi_by_channel`, `kpi_by_category`).
-5. Build visuals and export screenshots to `assets`.
-6. Fill in the executive summary in `reports`.
+In real data mode, the dashboard uses:
+- net revenue = `order_amount - discount_amount`
+- cost = `cogs_amount`
+- only rows with status `completed` in KPI totals
 
-## Key Insights Template
-Replace with your real findings once analysis is complete.
-1. Revenue trend:
-2. Margin pattern:
-3. Return behavior:
+The app sidebar lets you choose which `.db` file to visualize.
 
-## Recommended Actions Template
-1. Shift budget toward channels with high margin percent.
-2. Audit categories with high return rate.
-3. Improve discount strategy where AOV is dropping.
-
-## Data Quality and Assumptions
-See:
-- `docs/metric_definitions.md`
-- `docs/assumptions_and_limitations.md`
-
-## Portfolio Presentation Tips
-- Keep dashboard to 1 main page plus 1 drilldown page.
-- Show trend, segmentation, and root-cause views.
-- In the README, emphasize decisions supported by data.
-
-## Next Steps
-- Add a conversion-rate view if web session data is available.
-- Add cohort retention analysis by first purchase month.
-- Add forecast baseline for revenue and margin.
+## Portfolio value
+This project demonstrates practical analytics workflow:
+1. SQL modeling and data extraction
+2. Python transformation and KPI calculations
+3. Interactive dashboard for business decisions
